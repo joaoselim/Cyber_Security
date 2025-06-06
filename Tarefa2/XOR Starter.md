@@ -1,6 +1,6 @@
 # XOR Starter
 ###### Solved by @joaoselim
-> This CTF is about
+> This CTF is about Crypto
 ## About the challenge
 Começando, nós temos uma breve explicação sobre como funciona uma operação XOR
 Em seguida, nos e dado a string `label`, e nos pede para fazermos um XOR de cada caracter com o número inteiro `13`. Em seguida devemos converter de volta para string para achar a flag.
