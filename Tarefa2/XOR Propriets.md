@@ -42,4 +42,6 @@ Assim chegando na flag em hexa `63727970746f7b7830725f69355f61737330633161743176
 
 Agora só nos resta decriptar. Utilizando a ferramenta CyberChef chegamos na flag.
 
+[![Captura-de-tela-2025-06-05-223521.png](https://i.postimg.cc/sgtgSL22/Captura-de-tela-2025-06-05-223521.png)](https://postimg.cc/zyFNY0Km)
+
 >'crypto{x0r_i5_ass0c1at1v3}'
