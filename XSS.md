@@ -151,5 +151,17 @@ HTML Source:
 <p class="comment" title="*/prompt(1)'"></p>
 ```
 
-#### Desafio 8:
+#### Desafio A:
 
+[![questaoA.png](https://i.postimg.cc/0y0v66S5/questaoA.png)](https://postimg.cc/68qggpzF)
+
+Input:
+```
+p'rompt(1)
+```
+O código da questão substitui a string `prompt` pela string `alert` e também substitui `'` por `''`, então colocando `'` em qualquer parte da string já não ocorre a troca para alert, e o programa prompt(1) não é afetado pela presença de `'`
+
+HTML Source:
+```
+<script>prompt(1)</script>
+```
