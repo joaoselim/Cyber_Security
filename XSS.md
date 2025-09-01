@@ -77,6 +77,8 @@ HTML Source:
 
 [![questao4.png](https://i.postimg.cc/nz5tYGwx/questao4.png)](https://postimg.cc/mzQqTCsp)
 
+Não consegui realizar.
+
 #### Desafio 5:
 
 [![questao5.png](https://i.postimg.cc/R0kkWZ3C/questao5.png)](https://postimg.cc/GBj7NrJ6)
@@ -248,6 +250,8 @@ HTML Source:
 #### Desafio E:
 
 [![questaoE.png](https://i.postimg.cc/d3sbJsp6/questaoE.png)](https://postimg.cc/XGPH8bVB)
+
+Não consegui realizar.
 
 #### Desafio F:
 
