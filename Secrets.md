@@ -3,12 +3,13 @@
 > This CTF is about Web
 
 ## About the Challenge
-Temos diversas paginas escondidas. Você consegue encontrar a que contém a flag?
+A questão [Secrets](https://play.picoctf.org/practice/challenge/296) contém o enunciado
+`Temos diversas paginas escondidas. Você consegue encontrar a que contém a flag?`
 
 ## Solution
-A [questão](https://play.picoctf.org/practice/challenge/296) já fornece uma informação, procurar por páginas escondidas.
+A questão já fornece uma informação, procurar por páginas escondidas.
 
-Iniciando o desafio, fornece o link do site.
+Dando iniciando ao desafio, surge o link do site.
 Abrindo se tem acesso a 3 páginas
 [![tela-inicial.png](https://i.postimg.cc/xjJ44sMs/tela-inicial.png)](https://postimg.cc/dDF67jWd)
 [![segunda-tela.png](https://i.postimg.cc/MZCF2yYz/segunda-tela.png)](https://postimg.cc/grKD3L57)
