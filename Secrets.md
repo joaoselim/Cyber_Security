@@ -172,7 +172,7 @@ Retornando à página `secret/hidden/`, adicionando o `superhidden/`, se chega n
 O texto informa que a flag está aqui, só não conseguimos ver. Porém se selecionar todo o conteúdo da página, aparece escondido a flag:
 [![secret-hidden-superhidden-selecionado.png](https://i.postimg.cc/MZyxMKHb/secret-hidden-superhidden-selecionado.png)](https://postimg.cc/XX7ttWwp)
 
-Também é possível encontrar a flag acessando novamente o código fonte.
+Também é possível encontrar-la acessando novamente o código fonte.
 ```
 <!DOCTYPE html>
 <html>
@@ -187,4 +187,6 @@ Também é possível encontrar a flag acessando novamente o código fonte.
   </body>
 </html>
 ```
+
+Assim chegando na flag.
 >'picoCTF{succ3ss_@h3n1c@10n_790d2615}'
