@@ -56,12 +56,12 @@ Verificando a página fonte do site `[Ctrl+U]`
 </html>
 ```
 
-Observa-se a existencia de um diretório com o nome de `secret`.
+Observa-se a existência de um diretório com o nome de `secret`.
 ```
 <link href="secret/assets/index.css" rel="stylesheet" />
 ```
 
-Retornando para a página inicial e inserindo esse diretório, se chega na segunda página
+Retornando à página inicial e inserindo esse diretório, se chega na segunda página
 [![secret.png](https://i.postimg.cc/Pf15kMk4/secret.png)](https://postimg.cc/nMcJ4Brj)
 
 Novamente verificando o código fonte da página
@@ -160,12 +160,12 @@ Novamente ao acessar o código fonte
   </body>
 </html>
 ```
-Se verifica a existencia de outro diretório suspeito ,`superhidden`.
+Se verifica a existencia de outro diretório suspeito,`superhidden`.
 ```
 <link href="superhidden/login.css" rel="stylesheet" />
 ```
 
-Retornando para a página `secret/hidden/`, adicionando o `superhidden/`, se chega na ultima página
+Retornando à página `secret/hidden/`, adicionando o `superhidden/`, se chega na última página
 [![secret-hidden-superhidden.png](https://i.postimg.cc/QM0hM6ML/secret-hidden-superhidden.png)](https://postimg.cc/JyD965JK)
 
 O texto informa que a flag está aqui, só não conseguimos ver. Porém se selecionar todo o conteúdo da página, aparece escondido a flag:
