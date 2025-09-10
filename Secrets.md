@@ -9,13 +9,13 @@ A questão [Secrets](https://play.picoctf.org/practice/challenge/296) contém o 
 ## Solution
 A questão já fornece uma informação, procurar por páginas escondidas.
 
-Dando iniciando ao desafio, surge o link do site.
+Iniciando o desafio, surge o link do site.
 Abrindo se tem acesso a 3 páginas
 [![tela-inicial.png](https://i.postimg.cc/xjJ44sMs/tela-inicial.png)](https://postimg.cc/dDF67jWd)
 [![segunda-tela.png](https://i.postimg.cc/MZCF2yYz/segunda-tela.png)](https://postimg.cc/grKD3L57)
 [![terceira-tela.png](https://i.postimg.cc/BngYKRfv/terceira-tela.png)](https://postimg.cc/VJJWyG6y)
 
-Verificando a página fonte do site `[Ctrl+U]`
+Verificando a código-fonte da página `[Ctrl+U]`
 
 ```
 
@@ -65,7 +65,7 @@ Observa-se a existência de um diretório com o nome de `secret`.
 Retornando à página inicial e inserindo esse diretório, se chega na segunda página
 [![secret.png](https://i.postimg.cc/Pf15kMk4/secret.png)](https://postimg.cc/nMcJ4Brj)
 
-Novamente verificando o código fonte da página
+Novamente verificando o código-fonte
 ```
 <!DOCTYPE html>
 <html>
@@ -81,10 +81,10 @@ Novamente verificando o código fonte da página
 </html>
 ```
 
-Se verifica a existencia de outro diretório com nome suspeito de `hidden`, (traduzindo: escondido). Retornando à página `secret/` e adicionando também o `hidden/` vamos para
+Se verifica a existência de outro diretório com o nome suspeito de `hidden`, (traduzindo: escondido). Retornando à página `secret/` e adicionando também o `hidden/` vamos para
 [![secret-hidden.png](https://i.postimg.cc/k4Xzhq9z/secret-hidden.png)](https://postimg.cc/jWmMDVD4)
 
-Novamente ao acessar o código fonte
+Repetindo o processo de acessar o código fonte
 ```
 
 <!DOCTYPE html>
@@ -161,7 +161,7 @@ Novamente ao acessar o código fonte
   </body>
 </html>
 ```
-Se verifica a existencia de outro diretório suspeito,`superhidden`.
+Novamente percebe-se a existência de outro diretório suspeito,`superhidden`.
 ```
 <link href="superhidden/login.css" rel="stylesheet" />
 ```
@@ -172,7 +172,7 @@ Retornando à página `secret/hidden/`, adicionando o `superhidden/`, se chega n
 O texto informa que a flag está aqui, só não conseguimos ver. Porém se selecionar todo o conteúdo da página, aparece escondido a flag:
 [![secret-hidden-superhidden-selecionado.png](https://i.postimg.cc/MZyxMKHb/secret-hidden-superhidden-selecionado.png)](https://postimg.cc/XX7ttWwp)
 
-Também é possível encontrar-la acessando novamente o código fonte.
+Também é possível encontra-la acessando novamente o código fonte.
 ```
 <!DOCTYPE html>
 <html>
