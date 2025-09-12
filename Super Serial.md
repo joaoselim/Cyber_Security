@@ -5,10 +5,10 @@
 ## About the challenge
 A questão [Super Serial](https://play.picoctf.org/practice/challenge/180) possui o enunciado `Try to recover the flag stored on this website`.
 
-Então puramente é dito para tentar encontrar a flag no site.
+O enunciado informa apenas que é necessário localizar a flag no site.
 
 ## Solution
-Abrindo o link se encontra uma página de login básica
+Ao abrir o link se encontra uma página de login básica
 
 [![paginicial.png](https://i.postimg.cc/QdBKkgdP/paginicial.png)](https://postimg.cc/QF3MjT5k)
 
@@ -81,10 +81,10 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
 </html>
 ```
 
-Logo no começo do código já é possível se indentificar dois diretórios, `cookie.php` e `authentication.php`.
-Também se consegue ver a linha `$con = new SQLite3("../users.db");` que mostra que para se conectar ao SQL ira ser preciso subir um nível do diretório atual através de `../`, para poder acessar `/flag`.
+Logo no começo do código já é possível se identificar dois diretórios, `cookie.php` e `authentication.php`.
+Também se consegue ver a linha `$con = new SQLite3("../users.db");` que mostra que para se conectar ao SQL será preciso subir um nível do diretório atual através de `../`, para poder acessar `/flag`.
 
-Abrindo o `authentication.phps` é possível se entender que o script importa o `cookie.php` para a verificar se o usuário é admin
+Ao abrir o `authentication.phps` é possível se entender que o script importa o `cookie.php` para a verificar se o usuário é admin
 
 ```
 <?php
@@ -222,21 +222,21 @@ if(isset($_COOKIE["login"])){
 
 É basicamente uma função para gerar um cookie que determine se é um admin ou um usuário.
 
-Então resumidamente se sabe que em `index.php` se realiza um login e cria um cookie através do `cookie.php`. Em seguida o `authentication` lê o cookie e verifica se é um admin.
+Então resumidamente, se sabe que em `index.php` se realiza um login e cria um cookie através do `cookie.php`. Em seguida o `authentication` lê o cookie e verifica se é um admin.
 Portanto é preciso gerar um cookie que tenha um valor igual a `../flag` para se chegar onde esta a flag.
 
 Através de um código php criado para gerar o valor desse cookie
 
 [![geradorcookie.png](https://i.postimg.cc/L8V2CptG/geradorcookie.png)](https://postimg.cc/68TkqF1h)
 
-Rodando ele em um compilador online, gera o valor de cookie:
+Ao rodar ele em um compilador online, gera o valor de cookie:
 ```
 TzoxMDoiYWNjZXNzX2xvZyI6MTp7czo4OiJsb2dfZmlsZSI7czo3OiIuLi9mbGFnIjt9
 ```
 
 Para acessar usando o cookie, se utiliza o curl, através do CMD.
 
-Então abrindo o prompt de comando e inserindo o comando:
+Então abrindo o prompt de comando, ao inserir o comando abaixo:
 ```
 curl -s -b "login=TzoxMDoiYWNjZXNzX2xvZyI6MTp7czo4OiJsb2dfZmlsZSI7czo3OiIuLi9mbGFnIjt9" http://mercury.picoctf.net:5428/authentication.php
 ```
@@ -244,5 +244,5 @@ Se tem como reposta:
 
 <img width="880" height="253" alt="image" src="https://github.com/user-attachments/assets/1bc5bb85-14bc-4139-b7b3-feef7ace3997" />
 
-Assim conseguindo a flag:
+Assim chegando na flag:
 >'picoCTF{th15_vu1n_1s_5up3r_53r1ous_y4ll_c5123066}'
