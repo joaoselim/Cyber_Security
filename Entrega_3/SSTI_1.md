@@ -8,11 +8,11 @@ A questão [SSTI1](https://play.picoctf.org/practice/challenge/492) possui o enu
 Simplesmente informa que foi criado um site em que nele se pode anunciar qualquer coisa.
 
 ## Solution
-Ao abrir o site enocontra-se uma página simples com espaço para inserir texto
+Ao abrir o site encontra-se uma página simples com espaço para inserir texto
 
 [![tela-inicial.png](https://i.postimg.cc/Z5QY2rfs/tela-inicial.png)](https://postimg.cc/0zpqJJ17)
 
-Sabendo pelo nome da questão, para chegar na flag tem de trabalhar com [SSTI](https://portswigger.net/web-security/server-side-template-injection#what-is-server-side-template-injection), que se consiste em injetar códigos em templates.
+Sabendo pelo nome da questão, para chegar na flag tem de trabalhar com [SSTI](https://portswigger.net/web-security/server-side-template-injection#what-is-server-side-template-injection), que consiste em injetar códigos em templates que são analisados pelo lado do servidor.
 A primeira etapa é identificar qual o tipo de template com o qual se está lidando, para isso se tem alguns testes.
 
 [![template-decision-tree.png](https://i.postimg.cc/RZBLfH18/template-decision-tree.png)](https://postimg.cc/ykLRCWbX)
@@ -27,7 +27,7 @@ Inserindo temos como saída
 
 [![teste2.png](https://i.postimg.cc/nz4Dndgh/teste2.png)](https://postimg.cc/hzGjr0Kk)
 
-Foi executado, o programa entandeu que deveria realizar a multiplicação de `7 * 7` e exibiu o resultado `49`. Ainda seguindo nos testes de identificação, o próximo payload é `{{7*'7'}}`.
+Foi executado, o programa entendeu que deveria realizar a multiplicação de `7 * 7` e exibiu o resultado `49`. Ainda seguindo nos testes de identificação, o próximo payload é `{{7*'7'}}`.
 
 Inserindo se tem como saída
 
@@ -35,7 +35,7 @@ Inserindo se tem como saída
 
 Com isso se determinou que se trata de um template de tipo Jinja2, pois o payload `{{7*'7'}}` em Twig teria tido como saída `49`.
 
-Agora sabendo com em que se baseia o site, se analisa a contrução de [payloads específicos para jinja2](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/bd5b09a85b06e28a1e3fca58323b3629738e5543/Server%20Side%20Template%20Injection/Python.md#jinja2). Primeiro ao realizar uma analise dos ids usando
+Agora, sabendo em que se baseia o site, se analisa a construção de [payloads específicos para jinja2](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/bd5b09a85b06e28a1e3fca58323b3629738e5543/Server%20Side%20Template%20Injection/Python.md#jinja2). Primeiro ao realizar uma análise dos ids usando
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
 ```
@@ -49,13 +49,13 @@ Então rodando
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls').read() }}
 ```
-Aparece de informação
+Aparecem as informações
 
 [![input2.png](https://i.postimg.cc/j2VCnzVk/input2.png)](https://postimg.cc/LYTmrg8z)
 
-O comando `ls` lê quais arquivos e pastas estão guardadas no pasta em que você está.
+O comando `ls` lê quais arquivos e pastas estão guardados na pasta em que você está.
 
-Então agora se tem conhecimento da existencia de um arquivo chamado `flag`. Então o próximo passo é ler oque está escrito dentro dele, para isso ao invés do comando `ls` se usa o `cat` e especifica qual arquivo que se quer ler
+Então agora se tem conhecimento da existência de um arquivo chamado `flag`. Então o próximo passo é ler o que está escrito dentro dele, para isso ao invés do comando `ls` se usa o `cat` e especifica qual arquivo que se quer ler
 ```
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat flag').read() }}
 ```
